@@ -1,0 +1,28 @@
+package enumtest;
+
+/**
+ * Created by nitlak on 31-07-2017.
+ */
+public class TestEnum extends Enum {
+    /**
+     * Sole constructor.  Programmers cannot invoke this constructor.
+     * It is for use by code emitted by the compiler in response to
+     * enum type declarations.
+     *
+     * @param name    - The name of this enum constant, which is the identifier
+     *                used to declare it.
+     * @param ordinal - The ordinal of this enumeration constant (its position
+     *                in the enum declaration, where the initial constant is assigned
+     */
+    protected TestEnum(String name, int ordinal) {
+        super(name, ordinal);
+    }
+
+    public static void main(String[] args) {
+        TestEnum t1 = new TestEnum("A", 0);
+        TestEnum t2 = new TestEnum("B", 1);
+        System.out.println(Enum.valueOf(TestEnum.class, "B"));
+    }
+}
+
+
