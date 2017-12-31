@@ -1,20 +1,22 @@
 package threading;
 
+import java.util.concurrent.Callable;
+
 /**
  * Created by nitlak on 31-12-2017.
  */
-public class SampleThreadThrowingException implements Runnable{
+public class SampleCallableThrowingException implements Callable{
 
     private String name;
 
-    public SampleThreadThrowingException(){}
+    public SampleCallableThrowingException(){}
 
-    public SampleThreadThrowingException(String name){
+    public SampleCallableThrowingException(String name){
         this.name = name;
     }
 
     @Override
-    public void run() {
+    public Object call() {
         for(int i =1; i<=10; i++){
             try {
                 Thread.sleep(1000);
@@ -33,5 +35,7 @@ public class SampleThreadThrowingException implements Runnable{
             }
 
         }
+
+        return  "Result of "+name;
     }
 }

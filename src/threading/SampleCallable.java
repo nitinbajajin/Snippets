@@ -1,19 +1,21 @@
 package threading;
 
+import java.util.concurrent.Callable;
+
 /**
  * Created by nitlak on 31-12-2017.
  */
-public class SampleThread implements Runnable {
+public class SampleCallable implements Callable {
     private String name ;
 
-    public SampleThread(){};
+    public SampleCallable(){};
 
-    public SampleThread(String name){
+    public SampleCallable(String name){
         this.name = name;
     }
 
     @Override
-    public void run() {
+    public Object call() {
         for(int i =1; i<=10; i++){
             try {
                 Thread.sleep(1000);
@@ -24,6 +26,9 @@ public class SampleThread implements Runnable {
                 name = Thread.currentThread().getName();
             System.out.println(name);
 
+
+
         }
+        return "Result of "+name;
     }
 }
